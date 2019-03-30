@@ -1,0 +1,7 @@
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\bin\Debug\LabirintEPAM2019.exe.config
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\bin\Debug\LabirintEPAM2019.exe
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\bin\Debug\LabirintEPAM2019.pdb
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\obj\Debug\LabirintEPAM2019.csprojAssemblyReference.cache
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\obj\Debug\LabirintEPAM2019.csproj.CoreCompileInputs.cache
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\obj\Debug\LabirintEPAM2019.exe
+D:\oop\fancyCalcc\LabirintEPAM2019\LabirintEPAM2019\obj\Debug\LabirintEPAM2019.pdb
