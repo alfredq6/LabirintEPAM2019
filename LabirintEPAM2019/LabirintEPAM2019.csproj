@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Cells\BaseConsoleCell.cs" />
     <Compile Include="Cells\Coin.cs" />
+    <Compile Include="Cells\Ground.cs" />
     <Compile Include="Hero\Direction.cs" />
     <Compile Include="GameGen\Drawer.cs" />
     <Compile Include="Hero\Hero.cs" />

@@ -56,6 +56,10 @@ namespace LabirintEPAM2019
                             StartNewGame();
                             break;
                         }
+                    case ConsoleKey.Escape:
+                        {
+                            return;
+                        }
                     default: break;
                 }
             }
@@ -66,11 +70,9 @@ namespace LabirintEPAM2019
             if (!lab.Coins.Any())
             {
                 Console.WriteLine("Congratulation!");
-                Console.WriteLine("Press any key to replace or ESCape to exit");
+                Console.WriteLine("Press any key to replay");
                 var key1 = Console.ReadKey();
 
-                if (key1.Key == ConsoleKey.Escape)
-                    return;
                 StartNewGame();
                 Drawer.Draw(lab);
             }

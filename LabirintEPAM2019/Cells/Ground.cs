@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace {
+namespace LabirintEPAM2019
+{
     public class Ground : BaseConsoleCell
     {
         public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.Green;

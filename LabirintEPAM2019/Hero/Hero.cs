@@ -1,5 +1,4 @@
-﻿using LabirintEPAM2019.Cells;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +36,20 @@ namespace LabirintEPAM2019
             return true;
         }
 
+        private void TryToStepInCurrentCell(Labirint lab, BaseConsoleCell currCell)
+        {
+            if (currCell != null && currCell.TryToStep())
+            {
+                if (currCell.GetType() == typeof(Coin))
+                {
+                    lab.Coins.Remove((Coin)currCell);
+                    lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
+                }
+                _hero.X = currCell.X;
+                _hero.Y = currCell.Y;
+            }
+        }
+
         public void Step(Labirint lab, Direction direction)
         {
             
@@ -45,57 +58,25 @@ namespace LabirintEPAM2019
                 case Direction.Up:
                     {
                         var currCell = lab[_hero.X, _hero.Y - 1];
-                        if (currCell != null && currCell.TryToStep())
-                        {
-                            if (currCell.GetType() == typeof(Coin))
-                            {
-                                lab.Coins.Remove((Coin)currCell);
-                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
-                            }
-                            _hero.Y--;
-                        }
+                        TryToStepInCurrentCell(lab, currCell);
                         break;
                     }
                 case Direction.Down:
                     {
                         var currCell = lab[_hero.X, _hero.Y + 1];
-                        if (currCell != null && currCell.TryToStep())
-                        {
-                            if (currCell.GetType() == typeof(Coin))
-                            {
-                                lab.Coins.Remove((Coin)currCell);
-                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
-                            }
-                            _hero.Y++;
-                        }
+                        TryToStepInCurrentCell(lab, currCell);
                         break;
                     }
                 case Direction.Left:
                     {
                         var currCell = lab[_hero.X - 1, _hero.Y];
-                        if (currCell != null && currCell.TryToStep())
-                        {
-                            if (currCell.GetType() == typeof(Coin))
-                            {
-                                lab.Coins.Remove((Coin)currCell);
-                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
-                            }
-                            _hero.X--;
-                        }
+                        TryToStepInCurrentCell(lab, currCell);
                         break;
                     }
                 case Direction.Right:
                     {
                         var currCell = lab[_hero.X + 1, _hero.Y];
-                        if (currCell != null && currCell.TryToStep())
-                        {
-                            if (currCell.GetType() == typeof(Coin))
-                            {
-                                lab.Coins.Remove((Coin)currCell);
-                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
-                            }
-                            _hero.X++;
-                        }
+                        TryToStepInCurrentCell(lab, currCell);
                         break;
                     }
             }
