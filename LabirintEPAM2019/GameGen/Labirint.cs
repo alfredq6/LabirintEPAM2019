@@ -10,9 +10,8 @@ namespace LabirintEPAM2019
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public List<Cell> Cells = new List<Cell>();
-        public List<Point> Road = new List<Point>();
-        public List<Cell> Coins = new List<Cell>();
+        public List<BaseConsoleCell> Cells = new List<BaseConsoleCell>();
+        public List<Coin> Coins = new List<Coin>();
 
         public Labirint(int width, int height)
         {
@@ -22,12 +21,12 @@ namespace LabirintEPAM2019
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    Cells.Add(new Cell(j, i, Allwall()));
+                    Cells.Add(new Wall(j, i));
                 }
             }
         }
 
-        public Cell this[int x, int y]
+        public BaseConsoleCell this[int x, int y]
         {
             get
             {
@@ -41,20 +40,6 @@ namespace LabirintEPAM2019
                 }
                 Cells.Add(value);
             }
-        }
-
-        public Labirint Reset(Hero hero)
-        {
-            this.Road.Clear();
-            hero.X = 2;
-            hero.Y = 1;
-            var labgen = new LabGenerator(this.Width, this.Height);
-            return labgen.GetLabirint(this.Width, this.Height);
-        }
-
-        private Wall Allwall()
-        {
-            return Wall.Up | Wall.Down | Wall.Left | Wall.Right;
         }
     }
 }

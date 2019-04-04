@@ -1,0 +1,104 @@
+﻿using LabirintEPAM2019.Cells;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LabirintEPAM2019
+{
+    public class Hero : BaseConsoleCell
+    {
+        public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.Red;
+        public override char Symbol { get; set; } = 'x';
+
+        private static Hero _hero;
+        public static Hero GetHero
+        {
+            get
+            {
+                if (_hero == null)
+                {
+                    _hero = new Hero();
+                }
+                return _hero;
+            }
+        }
+
+        private Hero()
+        {
+            X = 0;
+            Y = 0;
+        }
+
+
+        public override bool TryToStep()
+        {
+            return true;
+        }
+
+        public void Step(Labirint lab, Direction direction)
+        {
+            
+            switch (direction)
+            {
+                case Direction.Up:
+                    {
+                        var currCell = lab[_hero.X, _hero.Y - 1];
+                        if (currCell != null && currCell.TryToStep())
+                        {
+                            if (currCell.GetType() == typeof(Coin))
+                            {
+                                lab.Coins.Remove((Coin)currCell);
+                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
+                            }
+                            _hero.Y--;
+                        }
+                        break;
+                    }
+                case Direction.Down:
+                    {
+                        var currCell = lab[_hero.X, _hero.Y + 1];
+                        if (currCell != null && currCell.TryToStep())
+                        {
+                            if (currCell.GetType() == typeof(Coin))
+                            {
+                                lab.Coins.Remove((Coin)currCell);
+                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
+                            }
+                            _hero.Y++;
+                        }
+                        break;
+                    }
+                case Direction.Left:
+                    {
+                        var currCell = lab[_hero.X - 1, _hero.Y];
+                        if (currCell != null && currCell.TryToStep())
+                        {
+                            if (currCell.GetType() == typeof(Coin))
+                            {
+                                lab.Coins.Remove((Coin)currCell);
+                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
+                            }
+                            _hero.X--;
+                        }
+                        break;
+                    }
+                case Direction.Right:
+                    {
+                        var currCell = lab[_hero.X + 1, _hero.Y];
+                        if (currCell != null && currCell.TryToStep())
+                        {
+                            if (currCell.GetType() == typeof(Coin))
+                            {
+                                lab.Coins.Remove((Coin)currCell);
+                                lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
+                            }
+                            _hero.X++;
+                        }
+                        break;
+                    }
+            }
+        }
+    }
+}

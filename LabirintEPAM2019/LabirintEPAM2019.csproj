@@ -43,19 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cells\BaseConsoleCell.cs" />
-    <Compile Include="cells\Cell.cs" />
-    <Compile Include="cells\Coin.cs" />
-    <Compile Include="enums\Direction.cs" />
-    <Compile Include="ActionsWithLab\Drawer.cs" />
-    <Compile Include="cells\Hero.cs" />
-    <Compile Include="ActionsWithLab\LabGenerator.cs" />
-    <Compile Include="ActionsWithLab\Labirint.cs" />
-    <Compile Include="cells\Point.cs" />
+    <Compile Include="Cells\BaseConsoleCell.cs" />
+    <Compile Include="Cells\Coin.cs" />
+    <Compile Include="Hero\Direction.cs" />
+    <Compile Include="GameGen\Drawer.cs" />
+    <Compile Include="Hero\Hero.cs" />
+    <Compile Include="GameGen\LabGenerator.cs" />
+    <Compile Include="GameGen\Labirint.cs" />
+    <Compile Include="GameGen\Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="cells\Walls.cs" />
-    <Compile Include="enums\Wall.cs" />
+    <Compile Include="Cells\Walls.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace LabirintEPAM2019
 {
-    public class Walls : BaseConsoleCell
-    { 
-        public ConsoleColor BackgroudColor { get; set; } = ConsoleColor.DarkGreen;
-        public ConsoleColor ForegroundColor { get; set; } = ConsoleColor.DarkGreen;
-        public char Symbol { get; set; } = '#';
-        public void Write()
+    public class Wall : BaseConsoleCell
+    {
+        public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.White;
+        public override char Symbol { get; set; } = '#';
+
+        public Wall(int _x, int _y) : base(_x, _y) { }
+
+        public override bool TryToStep()
         {
-            Console.ForegroundColor = this.ForegroundColor;
-            Console.BackgroundColor = this.BackgroudColor;
-            Console.Write(Symbol);
+            return false;
         }
     }
-
-
-    
 }

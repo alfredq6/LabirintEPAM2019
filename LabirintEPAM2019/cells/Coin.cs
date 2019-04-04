@@ -8,17 +8,14 @@ namespace LabirintEPAM2019
 {
     public class Coin : BaseConsoleCell
     {
-        public ConsoleColor BackgroudColor { get; set; } = ConsoleColor.Black;
-        public ConsoleColor ForegroundColor { get; set; } = ConsoleColor.Yellow;
-        public char Symbol { get; set; } = 'c';
-        public int? X { get; set; } = null;
-        public int? Y { get; set; } = null;
+        public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.Yellow;
+        public override char Symbol { get; set; } = 'c';
 
-        public void Write()
+        public Coin(int _x, int _y) : base(_x, _y) { }
+
+        public override bool TryToStep()
         {
-            Console.ForegroundColor = this.ForegroundColor;
-            Console.BackgroundColor = this.BackgroudColor;
-            Console.Write(Symbol);
+            return true;
         }
     }
 }
