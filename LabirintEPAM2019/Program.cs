@@ -10,7 +10,8 @@ namespace LabirintEPAM2019
     {
         static void Main(string[] args)
         {
-            Game.StartGame();
+            var game = new Game();
+            game.StartGame();
         }
     }
 }

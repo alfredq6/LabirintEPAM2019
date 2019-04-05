@@ -51,12 +51,12 @@ namespace LabirintEPAM2019
             Console.WriteLine("Left to collect coin:" + labirint.Coins.Count);
         }
 
-
-
         private static void WriteSide()
         {
+            var baseForeground = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("#");
+            Console.ForegroundColor = baseForeground;
         }
     }
 }

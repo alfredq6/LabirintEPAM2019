@@ -16,8 +16,10 @@ namespace LabirintEPAM2019
 
         public void Write()
         {
+            var baseForeground = Console.ForegroundColor;
             Console.ForegroundColor = this.ForegroundColor;
             Console.Write(this.Symbol);
+            Console.ForegroundColor = baseForeground;
         }
 
         public BaseConsoleCell(int _x, int _y)

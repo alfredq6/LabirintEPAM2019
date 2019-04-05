@@ -40,7 +40,7 @@ namespace LabirintEPAM2019
                                                             && (ground.Y == 0 ? ground.X != 0 : true)).ToList();
 
             if (!coins.Any())
-                coins.Add(labirint.Cells.OfType<Ground>().ToList()[rand.Next(labirint.Cells.OfType<Ground>().Count())]);
+                coins.Add(labirint.Cells.OfType<Ground>().Last());
             
             labirint.Cells = labirint.Cells.Select(cell => coins.Any(coin => cell.X == coin.X && cell.Y == coin.Y) ? new Coin(cell.X, cell.Y) : cell).ToList();
             labirint.Coins = labirint.Cells.OfType<Coin>().ToList();

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace LabirintEPAM2019
 {
-    static class Game
+    public class Game
     {
-        private static Labirint lab;
-        private static LabGenerator generator;
-        private static Hero hero;
+        private Labirint lab;
+        private LabGenerator generator;
+        private Hero hero;
 
-        public static void StartGame()
+        public void StartGame()
         {
             generator = new LabGenerator(5, 5);
             lab = generator.GetLabirint();
@@ -65,7 +65,7 @@ namespace LabirintEPAM2019
             }
         }
 
-        private static void CheckOnAnyCoins()
+        private void CheckOnAnyCoins()
         {
             if (!lab.Coins.Any())
             {
@@ -78,7 +78,7 @@ namespace LabirintEPAM2019
             }
         }
 
-        private static void StartNewGame()
+        private void StartNewGame()
         {
             lab = generator.GetLabirint();
             hero.X = 0;
