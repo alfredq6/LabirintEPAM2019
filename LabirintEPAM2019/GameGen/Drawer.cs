@@ -48,7 +48,7 @@ namespace LabirintEPAM2019
                 WriteSide();
             }
             Console.WriteLine();
-            Console.WriteLine("Left to collect coin:" + labirint.Coins.Count);
+            Console.WriteLine("Left to collect coin:" + labirint.Cells.OfType<Coin>().Count());
         }
 
         private static void WriteSide()

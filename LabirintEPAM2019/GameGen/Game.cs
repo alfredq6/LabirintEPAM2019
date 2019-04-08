@@ -14,7 +14,7 @@ namespace LabirintEPAM2019
 
         public void StartGame()
         {
-            generator = new LabGenerator(5, 5);
+            generator = new LabGenerator(20, 15);
             lab = generator.GetLabirint();
             ConsoleKeyInfo key;
             hero = Hero.GetHero;
@@ -67,7 +67,7 @@ namespace LabirintEPAM2019
 
         private void CheckOnAnyCoins()
         {
-            if (!lab.Coins.Any())
+            if (!lab.Cells.OfType<Coin>().Any())
             {
                 Console.WriteLine("Congratulation!");
                 Console.WriteLine("Press any key to replay");

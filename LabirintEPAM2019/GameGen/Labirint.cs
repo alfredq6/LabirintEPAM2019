@@ -11,7 +11,6 @@ namespace LabirintEPAM2019
         public int Width { get; private set; }
         public int Height { get; private set; }
         public List<BaseConsoleCell> Cells = new List<BaseConsoleCell>();
-        public List<Coin> Coins = new List<Coin>();
 
         public Labirint(int width, int height)
         {

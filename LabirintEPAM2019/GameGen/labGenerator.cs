@@ -43,7 +43,6 @@ namespace LabirintEPAM2019
                 coins.Add(labirint.Cells.OfType<Ground>().Last());
             
             labirint.Cells = labirint.Cells.Select(cell => coins.Any(coin => cell.X == coin.X && cell.Y == coin.Y) ? new Coin(cell.X, cell.Y) : cell).ToList();
-            labirint.Coins = labirint.Cells.OfType<Coin>().ToList();
             
         }
 

@@ -10,12 +10,8 @@ namespace LabirintEPAM2019
     {
         public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.White;
         public override char Symbol { get; set; } = '#';
+        public override bool TryToStep { get; protected set; } = false;
 
         public Wall(int _x, int _y) : base(_x, _y) { }
-
-        public override bool TryToStep()
-        {
-            return false;
-        }
     }
 }

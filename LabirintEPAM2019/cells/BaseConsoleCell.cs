@@ -10,6 +10,7 @@ namespace LabirintEPAM2019
     {
         public abstract ConsoleColor ForegroundColor { get; protected set; }
         public abstract char Symbol { get; set; }
+        public abstract bool TryToStep { get; protected set; }
 
         public int X { get; set; }
         public int Y { get; set; }
@@ -27,8 +28,6 @@ namespace LabirintEPAM2019
             X = _x;
             Y = _y;
         }
-
-        public abstract bool TryToStep();
 
         public BaseConsoleCell() { }
     }

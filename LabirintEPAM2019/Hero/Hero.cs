@@ -10,6 +10,7 @@ namespace LabirintEPAM2019
     {
         public override ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.Red;
         public override char Symbol { get; set; } = 'x';
+        public override bool TryToStep { get; protected set; } = true;
 
         private static Hero _hero;
         public static Hero GetHero
@@ -31,18 +32,12 @@ namespace LabirintEPAM2019
         }
 
 
-        public override bool TryToStep()
-        {
-            return true;
-        }
-
         private void TryToStepInCurrentCell(Labirint lab, BaseConsoleCell currCell)
         {
-            if (currCell != null && currCell.TryToStep())
+            if (currCell != null && currCell.TryToStep)
             {
-                if (currCell.GetType() == typeof(Coin))
+                if (currCell is Coin)
                 {
-                    lab.Coins.Remove((Coin)currCell);
                     lab.Cells = lab.Cells.Select(cell => cell.X == currCell.X && cell.Y == currCell.Y ? new Ground(currCell.X, currCell.Y) : cell).ToList();
                 }
                 _hero.X = currCell.X;
